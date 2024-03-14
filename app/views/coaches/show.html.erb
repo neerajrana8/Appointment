@@ -1,0 +1,8 @@
+<h2>Coach</h2>
+<h5><%= @coach.name %></h5>
+<p>Duration: <%= Slot::SESSION_DURATION %> Mins</p>
+<% @slots.each do |f| %>
+  <p> <%= f.start_time + " : " + f.available.day %>
+    <%= link_to 'Book This SLot', book_appointments_path(slot_id: f.id) %> </p>
+<% end %>
+<p></p>

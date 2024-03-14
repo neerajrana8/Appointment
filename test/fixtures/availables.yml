@@ -1,0 +1,32 @@
+# == Schema Information
+#
+# Table name: availables
+#
+#  id         :integer          not null, primary key
+#  day        :integer
+#  end_time   :string
+#  start_time :string
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#  user_id    :integer          not null
+#
+# Indexes
+#
+#  index_availables_on_user_id  (user_id)
+#
+# Foreign Keys
+#
+#  user_id  (user_id => users.id)
+#
+
+one:
+  day: 1
+  start_time: MyString
+  end_time: MyString
+  user: one
+
+two:
+  day: 1
+  start_time: MyString
+  end_time: MyString
+  user: two
