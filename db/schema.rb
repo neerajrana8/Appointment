@@ -26,14 +26,14 @@ ActiveRecord::Schema[7.0].define(version: 2024_03_14_191314) do
     t.integer "day"
     t.string "start_time"
     t.string "end_time"
-    t.integer "user_id", null: false
+    t.integer "coach_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_availables_on_user_id"
+    t.index ["coach_id"], name: "index_availables_on_coach_id"
   end
 
   create_table "slots", force: :cascade do |t|
-    t.boolean "booked"
+    t.boolean "booked", default: false, null: false
     t.string "start_time"
     t.integer "available_id", null: false
     t.datetime "created_at", null: false
@@ -50,6 +50,5 @@ ActiveRecord::Schema[7.0].define(version: 2024_03_14_191314) do
   end
 
   add_foreign_key "appointments", "slots"
-  add_foreign_key "availables", "users"
   add_foreign_key "slots", "availables"
 end

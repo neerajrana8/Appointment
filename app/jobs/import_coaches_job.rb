@@ -17,7 +17,9 @@ class ImportCoachesJob < ApplicationJob
       all_slots = Slot.new.generate_slots(row[:available_at], row[:available_until])
 
       # Create all slots in one go
-      slots = available.slots.create(all_slots.map { |slot_time| { start_time: slot_time } })
+      all_slots.map do |slot_time|
+        Slot.create!(available: available, start_time: slot_time)
+      end
     end
     #CSV processed
   end

@@ -3,7 +3,7 @@
 # Table name: slots
 #
 #  id           :integer          not null, primary key
-#  booked       :boolean
+#  booked       :boolean          default(FALSE), not null
 #  start_time   :string
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
@@ -19,7 +19,6 @@
 #
 class Slot < ApplicationRecord
   belongs_to :available
-  belongs_to :user
   has_one :appointment
 
 

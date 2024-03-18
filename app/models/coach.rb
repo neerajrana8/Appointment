@@ -11,4 +11,6 @@
 #
 class Coach < User
   has_many :appointments
+  has_many :availables
+  has_many :slots, through: :availables
 end

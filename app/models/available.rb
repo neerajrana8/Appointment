@@ -8,18 +8,14 @@
 #  start_time :string
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
-#  user_id    :integer          not null
+#  coach_id   :integer          not null
 #
 # Indexes
 #
-#  index_availables_on_user_id  (user_id)
-#
-# Foreign Keys
-#
-#  user_id  (user_id => users.id)
+#  index_availables_on_coach_id  (coach_id)
 #
 class Available < ApplicationRecord
-  belongs_to :user
+  belongs_to :coach
   has_many :slots
   enum day: %w[Sunday Monday Tuesday Wednesday Thursday Friday Saturday]
 end
